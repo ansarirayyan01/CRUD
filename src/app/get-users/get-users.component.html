@@ -1,0 +1,55 @@
+<app-search (searchQuery)="onSearch($event)"></app-search>
+
+<div class="users-section">
+  <h2 class="users-h2">Users List</h2>
+  <hr style="background-color: black; font-weight: bold" />
+  <div class="useritem-outside">
+    @if(userList.length === 0){
+    <div class="empty-state">
+      <h4 class="empty-h4">No User present</h4>
+      <p class="empty-p">Add your first user above</p>
+    </div>
+    }@else if (filteredList.length === 0) {
+    <div class="empty-state">
+      <h4 class="empty-h4">No User found</h4>
+      <p class="empty-p">Try searching with different keywords</p>
+    </div>
+    }@else{
+    <div class="users-item">
+      @for(user of filteredList; track user.id){
+      <div class="user-info">
+        <div class="user-details">
+          <h2><b>Name: </b>{{ user.name }}</h2>
+          <p><b>Email: </b>{{ user.email }}</p>
+          <p><b>Age: </b>{{ user.age }}</p>
+        </div>
+        <div class="user-actions">
+          <button [routerLink]="['/add-user', user.id]" class="btn btn-edit">
+            Edit
+          </button>
+          <button (click)="openDeletePopup(user.id)" class="btn btn-delete">
+            Delete
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>
+
+<div *ngIf="showPopup" class="popup">
+  <div class="popup-content">
+    <h3>Are you sure you want to DELETE this User?</h3>
+    <div class="popup-actions">
+      <button class="btn btn-confirm" (click)="confirmDelete()">Confirm</button>
+      <button class="btn btn-cancel" (click)="cancelDelete()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="successMessage" class="success-toast">
+  {{ successMessage }}
+</div>
+
+<div *ngIf="isLoading" class="loading-spinner">Loading...</div>

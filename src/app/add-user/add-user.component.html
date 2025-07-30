@@ -1,0 +1,92 @@
+<div class="main">
+  <div class="form-section">
+    <h2 class="form-h2">
+      {{ selectUpdatedUser ? "Update User" : "Add User" }}
+    </h2>
+    <hr style="background-color: black; font-weight: bold" />
+    <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
+      <div class="form-group">
+        <label class="input-label" for="name">Name</label>
+        <div class="popup-error" *ngIf="nameInput.invalid && nameInput.touched">
+          <img class="icon-img" src="assets/icon.png" alt="" />
+          Enter valid name and must be 3 characters long
+        </div>
+        <input
+          type="text"
+          placeholder="Enter name"
+          name="name"
+          #nameInput="ngModel"
+          [ngModel]="selectUpdatedUser?.name"
+          pattern="[a-z A-Z]*"
+          required
+          minlength="3"
+          maxlength="15"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+
+        <div
+          class="popup-error"
+          *ngIf="emailInput.invalid && emailInput.touched"
+        >
+          <img class="icon-img" src="assets/icon.png" alt="" />
+          Enter valid email and must be at least 5 characters long
+        </div>
+        <input
+          type="text"
+          placeholder="Enter Email"
+          name="email"
+          #emailInput="ngModel"
+          [ngModel]="selectUpdatedUser?.email"
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          required
+          minlength="5"
+          maxlength="35"
+        />
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <div class="popup-error" *ngIf="ageInput.invalid && ageInput.touched">
+          <img class="icon-img" src="assets/icon.png" alt="" />
+          @if(ageInput.value <= 18){
+          <span>Age must be at least 18</span>
+          } @else if(ageInput.value > 100){
+          <span>Age must be less than 100</span>
+          }
+        </div>
+        <input
+          type="number"
+          placeholder="Enter Age"
+          name="age"
+          #ageInput="ngModel"
+          [ngModel]="selectUpdatedUser?.age"
+          pattern="[0-9]*"
+          required
+          min="18"
+          max="100"
+        />
+      </div>
+      <br />
+      <div class="form-actions">
+        <button type="submit" class="btn btn-add" [disabled]="!userForm.valid">
+          {{ selectUpdatedUser ? "Update User" : "Add User" }}
+        </button>
+        <button type="button" class="btn btn-cancel" routerLink="/get-users">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="showDuplicatePopup" class="popup">
+  <div class="popup-content">
+    <h3>User with this Email already exists</h3>
+    <div class="popup-actions">
+      <button (click)="closeDuplicatePopup()" class="btn btn-cancel">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

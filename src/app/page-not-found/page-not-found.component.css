@@ -1,0 +1,30 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.not-found-container h1 {
+  font-size: 5rem;
+  margin-bottom: 0.5rem;
+  color: #ff4d4f;
+}
+
+.not-found-container p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.not-found-container button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
