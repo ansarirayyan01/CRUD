@@ -6,7 +6,7 @@
     <hr style="background-color: black; font-weight: bold" />
     <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
       <div class="form-group">
-        <label class="input-label" for="name">Name</label>
+        <label class="input-label" for="name">Name<div class="star">*</div></label>
         <div class="popup-error" *ngIf="nameInput.invalid && nameInput.touched">
           <img class="icon-img" src="assets/icon.png" alt="" />
           Enter valid name and must be 3 characters long
@@ -24,7 +24,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email<div class="star">*</div></label>
 
         <div
           class="popup-error"
@@ -46,7 +46,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="age">Age</label>
+        <label for="age">Age<div class="star">*</div></label>
         <div class="popup-error" *ngIf="ageInput.invalid && ageInput.touched">
           <img class="icon-img" src="assets/icon.png" alt="" />
           @if(ageInput.value <= 18){
