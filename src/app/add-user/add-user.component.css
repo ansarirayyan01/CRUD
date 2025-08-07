@@ -35,9 +35,18 @@
 }
 
 .star{
-  color: red;
+  color: rgb(255, 119, 0);
   font-size: 1.2rem;
   margin-left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.age-label{
+  font-size: 10px;
+    font-weight: normal;
 }
 
 .form-group input {
@@ -54,6 +63,12 @@
   border: none;
   font-weight: bold;
   margin: 0px 10px;
+}
+
+.required-fields{
+  color: #ff1100;
+  font-size: 12px;
+  margin-top: 4px;
 }
 
 .btn-add {
