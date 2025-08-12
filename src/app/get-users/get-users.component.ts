@@ -50,8 +50,8 @@ export class GetUsersComponent {
       .subscribe((term) => {
         this.filteredList = this.userList.filter(
           (user) =>
-            user.name?.toLowerCase().includes(term.toLowerCase()) ||
-            user.email?.toLowerCase().includes(term.toLowerCase())
+            user.name?.toLowerCase().includes(term.toLowerCase())
+            // user.email?.toLowerCase().includes(term.toLowerCase())
         );
       });
   }
