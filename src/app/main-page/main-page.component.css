@@ -20,7 +20,7 @@
 
 .main-page-title {
   font-size: 2.4rem;
-  color: #2a3a5e;
+  color: var(--text-primary);
   font-weight: 700;
   margin-bottom: 10px;
   text-align: center;
@@ -28,7 +28,7 @@
 
 .main-page-desc {
   font-size: 1.2rem;
-  color: #555;
+  color: var(--text-secondary);
   text-align: center;
   max-width: 500px;
 }
