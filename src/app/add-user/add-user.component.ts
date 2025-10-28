@@ -4,7 +4,6 @@ import { UsersService } from '../services/users.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
-import { ToastService } from '../toast.service';
 
 @Component({
   selector: 'app-add-user',
@@ -22,7 +21,6 @@ export class AddUserComponent {
     private userService: UsersService,
     private route: ActivatedRoute,
     private router: Router,
-    public toastService: ToastService
   ) {}
 
   ngOnInit() {
