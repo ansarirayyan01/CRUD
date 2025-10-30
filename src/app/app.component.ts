@@ -6,11 +6,12 @@ import { RouterOutlet, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { ThemeService } from './services/theme.service';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, RouterOutlet, NgIf, HeaderComponent],
+  imports: [FormsModule, RouterOutlet, NgIf, HeaderComponent, SpinnerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
